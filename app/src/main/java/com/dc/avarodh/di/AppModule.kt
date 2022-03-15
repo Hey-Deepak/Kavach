@@ -10,10 +10,11 @@ import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.android.scopes.ActivityScoped
 import dagger.hilt.android.scopes.ServiceScoped
+import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @Module
-@InstallIn(ActivityComponent::class)
+@InstallIn(SingletonComponent::class)
 object AppModule {
 
     @Singleton
@@ -21,10 +22,10 @@ object AppModule {
     fun providePackageManager(
         @ApplicationContext appContext: Context
     ): PackageManager {
-        return appContext as PackageManager
+        return appContext.packageManager
     }
 
-    @ActivityScoped
+    @Singleton
     @Provides
     fun provideString(): String{
         return "Testing"
