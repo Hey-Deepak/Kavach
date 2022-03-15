@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "579085498361",
+    "project_id": "avarodh-83757",
+    "storage_bucket": "avarodh-83757.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579085498361:android:c00f1d2663a6d962646f28",
+        "android_client_info": {
+          "package_name": "com.dc.avarodh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579085498361-pf6u0n19r4qrklnmr4qe2uaqk249np7o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWUVnz-WJtvnsCMUULuojmD51NFw6tYuU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579085498361-pf6u0n19r4qrklnmr4qe2uaqk249np7o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
