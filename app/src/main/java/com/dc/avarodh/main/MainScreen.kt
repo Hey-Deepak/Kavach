@@ -1,6 +1,7 @@
 package com.dc.avarodh.main
 
 import android.content.Intent
+import android.util.Log
 import androidx.activity.result.ActivityResultLauncher
 import androidx.compose.runtime.Composable
 import com.dc.avarodh.main.composables.*
@@ -30,6 +31,12 @@ fun MainScreen(
         is MainUiState.Main -> {
             val data = (viewModel.uiState.value as MainUiState.Main).bannedApps
             Main(data)
+        }
+
+        is MainUiState.FilteredAppList -> {
+            val mainList = (viewModel.uiState.value as MainUiState.FilteredAppList).filteredAppList
+            Log.d("TAG5", "FilteredList5" + mainList.toString())
+            FilteredAppList(filteredAppList = mainList)
         }
     }
 

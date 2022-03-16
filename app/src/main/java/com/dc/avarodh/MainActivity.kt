@@ -10,6 +10,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -34,7 +35,7 @@ class MainActivity : ComponentActivity() {
     lateinit var pm: PackageManager
 
     private lateinit var loginLauncher: ActivityResultLauncher<Intent>
-    private lateinit var viewmodel: MainViewModel
+    private val viewmodel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +43,7 @@ class MainActivity : ComponentActivity() {
         Log.d("TAG", pm.toString())
         setContent {
             AvarodhTheme {
-                viewmodel = viewModel()
+               // viewmodel = viewModel()
                 MainScreen(
                     loginLauncher, viewmodel
                 )
@@ -51,8 +52,7 @@ class MainActivity : ComponentActivity() {
 
         setupLoginLauncher()
         getLoggedInEmailFromPrefs()
-
-        //viewModel.pushList()
+        //viewmodel.pushList()
     }
 
     private fun setupLoginLauncher() {

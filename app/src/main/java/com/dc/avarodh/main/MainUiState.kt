@@ -8,4 +8,5 @@ sealed class MainUiState {
     data class Error(val msg: String): MainUiState()
     data class LoggedIn(val emailId: String): MainUiState()
     data class Main(val bannedApps: BannedApps): MainUiState()
+    data class FilteredAppList(val filteredAppList: MutableList<String>): MainUiState()
 }
