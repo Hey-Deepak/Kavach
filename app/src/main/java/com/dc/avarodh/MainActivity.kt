@@ -53,6 +53,7 @@ class MainActivity : ComponentActivity() {
         setupLoginLauncher()
         getLoggedInEmailFromPrefs()
         //viewmodel.pushList()
+
     }
 
     private fun setupLoginLauncher() {
@@ -84,7 +85,18 @@ class MainActivity : ComponentActivity() {
         prefs.edit().putString("emailId", email).apply()
     }
 
+
+    override fun onResume() {
+        super.onResume()
+        if (viewmodel.uiState.value is MainUiState.FilteredAppList){
+        Log.d("TAG11", "Hi")
+            val localAppList = viewmodel.getLocalappList()
+            viewmodel.filterList(localAppList)
+        }
+    }
 }
+
+
 
 
 @Preview(showBackground = true)

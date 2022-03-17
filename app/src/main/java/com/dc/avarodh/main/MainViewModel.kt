@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.dc.avarodh.model.BannedApp
 import com.dc.avarodh.model.BannedApps
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -16,7 +17,8 @@ class MainViewModel @Inject constructor(
 ): ViewModel(){
 
     val uiState = mutableStateOf<MainUiState>(MainUiState.NotLoggedIn)
-    private val filteredAppList: MutableList<String> = mutableListOf()
+    private var filteredAppList: MutableList<String> = mutableListOf()
+    private var listOfBannedApps: BannedApps = BannedApps(emptyList())
     init {
         /*if(uiState.value is MainUiState.LoggedIn)
             fetchList()*/
@@ -28,15 +30,7 @@ class MainViewModel @Inject constructor(
             .set(
                 BannedApps(
                 listOf(
-                    BannedApp("com.lavish.toprestro}"),
-                    BannedApp("com.dc.avarodh}"),
-                    BannedApp("com.facebook.services}"),
-                    BannedApp("com.asana.app}"),
-                    BannedApp("com.shubham.sourcecodes}"),
-                    BannedApp("com.honor.global}"),
-                    BannedApp("com.whatsapp.w4b}"),
-                    BannedApp("com.swapnil.noteapp}"),
-                    BannedApp("com.app.nobrokerhood}")
+                    BannedApp("us.zoom.videomeetings", "zoom")
                 )
             )
             )
@@ -53,8 +47,9 @@ class MainViewModel @Inject constructor(
                     val list = it.toObject(BannedApps::class.java)
                     list?.let {
 
-                        val localAppList: List<String> = getLocalappList(packageManager)
-                        filterList(localAppList, list)
+                        val localAppList: List<String> = getLocalappList()
+                        listOfBannedApps = list
+                        filterList(localAppList)
 
                         
                     } ?: kotlin.run {
@@ -69,24 +64,40 @@ class MainViewModel @Inject constructor(
 
     }
 
-    private fun filterList(localAppList: List<String>, listOfBannedApps: BannedApps) {
+    fun filterList(localAppList: List<String>) {
+        filteredAppList = mutableListOf()
         for (localApp in localAppList){
             for (bannedApp in listOfBannedApps.apps){
-                if (localApp.substring(24).equals (bannedApp.packageName)){
-                    filteredAppList.add(localApp.substring(24))
+                if (localApp.equals (bannedApp.packageName)){
+                    filteredAppList.add(localApp)
                 } else -1
             }
         }
         Log.d("TAG3", "FilteredList ${filteredAppList.toString()}")
         uiState.value = MainUiState.FilteredAppList(filteredAppList)
 
+        updateCountOnServer()
+
     }
 
-    private fun getLocalappList(pm: PackageManager) : List<String> {
-        val pm = pm.getInstalledApplications(PackageManager.GET_META_DATA)
-        val localAppList : MutableList<String> = mutableListOf()
-        pm.forEach { localAppList.add(it.toString()) }
+    private fun updateCountOnServer() {
+        val db = FirebaseFirestore.getInstance()
+        val user = FirebaseAuth.getInstance().currentUser?: return
+        val mailId = user.email ?: return
+        val userName = user.displayName ?: "NA"
 
+        db.collection("Users").document(mailId).set(
+            mapOf(
+                "count" to filteredAppList.size,
+                "userName" to userName
+            )
+        )
+    }
+
+    fun getLocalappList() : List<String> {
+        val pm = packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
+        val localAppList : MutableList<String> = mutableListOf()
+        pm.forEach { localAppList.add(it.packageName) }
         return localAppList
     }
 
