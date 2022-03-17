@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.dc.avarodh">
+    package="com.dc.kavach">
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES"></uses-permission>
     <application
-        android:name=".App"
+        android:name="com.dc.kavach.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Avarodh">
+        android:theme="@style/Theme.Kavach">
         <activity
-            android:name=".MainActivity"
+            android:name="com.dc.kavach.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Avarodh.NoActionBar">
+            android:theme="@style/Theme.Kavach.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,6 +1,6 @@
-package com.dc.avarodh.main
+package com.dc.kavach.main
 
-import com.dc.avarodh.model.BannedApps
+import com.dc.kavach.model.BannedApps
 
 sealed class MainUiState {
     object NotLoggedIn: MainUiState()

@@ -1,4 +1,4 @@
-package com.dc.avarodh.ui.theme
+package com.dc.kavach.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

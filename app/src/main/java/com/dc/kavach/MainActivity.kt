@@ -1,25 +1,26 @@
-package com.dc.avarodh
+package com.dc.kavach
 
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.dc.avarodh.main.MainScreen
-import com.dc.avarodh.main.MainUiState
-import com.dc.avarodh.main.MainViewModel
-import com.dc.avarodh.ui.theme.AvarodhTheme
+import com.dc.kavach.main.MainScreen
+import com.dc.kavach.main.MainUiState
+import com.dc.kavach.main.MainViewModel
+import com.dc.kavach.ui.theme.KavachTheme
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -42,11 +43,18 @@ class MainActivity : ComponentActivity() {
         Log.d("TAG", string)
         Log.d("TAG", pm.toString())
         setContent {
-            AvarodhTheme {
+            KavachTheme {
                // viewmodel = viewModel()
-                MainScreen(
-                    loginLauncher, viewmodel
-                )
+                Scaffold(
+                    topBar = {
+                        TopAppBar { Text(text = "Kavach") }
+                    }
+                ) {
+                    MainScreen(
+                        loginLauncher, viewmodel
+                    )
+                }
+                
             }
         }
 
@@ -66,6 +74,7 @@ class MainActivity : ComponentActivity() {
                     viewmodel.uiState.value = MainUiState.LoggedIn(email)
                     saveEmailToPrefs(email)
                     viewmodel.fetchList()
+                    Toast.makeText(this, "Congratulation! You have logged in as $email", Toast.LENGTH_LONG).show()
                 }
             }
         }
@@ -102,7 +111,7 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    AvarodhTheme {
+    KavachTheme {
 
     }
 }

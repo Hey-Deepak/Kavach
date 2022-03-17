@@ -1,4 +1,4 @@
-package com.dc.avarodh.ui.theme
+package com.dc.kavach.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

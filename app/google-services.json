@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:579085498361:android:c00f1d2663a6d962646f28",
+        "mobilesdk_app_id": "1:579085498361:android:3c47286cc3bb69ad646f28",
         "android_client_info": {
-          "package_name": "com.dc.avarodh"
+          "package_name": "com.dc.kavach"
         }
       },
       "oauth_client": [

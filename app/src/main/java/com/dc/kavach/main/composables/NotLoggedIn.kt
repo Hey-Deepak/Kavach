@@ -1,10 +1,7 @@
-package com.dc.avarodh.main.composables
+package com.dc.kavach.main.composables
 
-import android.content.Context
 import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContract
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.Text
@@ -14,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.dc.avarodh.R
+import com.dc.kavach.R
 import com.firebase.ui.auth.AuthUI
 
 @Composable

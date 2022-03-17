@@ -1,4 +1,4 @@
-package com.dc.avarodh
+package com.dc.kavach
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

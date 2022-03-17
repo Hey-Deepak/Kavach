@@ -1,4 +1,4 @@
-package com.dc.avarodh
+package com.dc.kavach
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

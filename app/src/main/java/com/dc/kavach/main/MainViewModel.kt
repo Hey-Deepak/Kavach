@@ -1,11 +1,11 @@
-package com.dc.avarodh.main
+package com.dc.kavach.main
 
 import android.content.pm.PackageManager
 import android.util.Log
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import com.dc.avarodh.model.BannedApp
-import com.dc.avarodh.model.BannedApps
+import com.dc.kavach.model.BannedApp
+import com.dc.kavach.model.BannedApps
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.lifecycle.HiltViewModel
