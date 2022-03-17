@@ -21,14 +21,15 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat.startActivity
+import com.dc.kavach.model.BannedApp
 
 @Composable
-fun FilteredAppList(filteredAppList: MutableList<String>) {
+fun FilteredAppList(filteredAppList: MutableList<BannedApp>) {
     Card(filteredAppList)
 }
 
 @Composable
-private fun Card(filteredAppList: MutableList<String>) {
+private fun Card(filteredAppList: MutableList<BannedApp>) {
     val context = LocalContext.current
 
     Column(
@@ -36,7 +37,7 @@ private fun Card(filteredAppList: MutableList<String>) {
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        for (index in filteredAppList) {
+        for (app in filteredAppList) {
 
             //Log.d("TAG33", (context.packageManager.getApplicationInfo("$index", index.toInt())).toString())
 
@@ -56,7 +57,7 @@ private fun Card(filteredAppList: MutableList<String>) {
                         horizontalAlignment = Alignment.Start
                     ) {
                         Text(
-                            text = "$index",
+                            text = app.name,
                             modifier = Modifier
                                 .padding(8.dp),
                             fontSize = 24.sp,
@@ -64,7 +65,7 @@ private fun Card(filteredAppList: MutableList<String>) {
 
                         )
                         Text(
-                            text = "$index",
+                            text = app.packageName,
                             modifier = Modifier
                                 .padding(8.dp),
                             fontSize = TextUnit.Unspecified,
@@ -74,7 +75,7 @@ private fun Card(filteredAppList: MutableList<String>) {
                     }
 
                     IconButton(modifier = Modifier.padding(8.dp).size(40.dp),
-                        onClick = { intentCall(index, context = context) }) {
+                        onClick = { intentCall(app.packageName, context = context) }) {
                         Icon(
                             Icons.Filled.Delete,
                             "contentDescription",
@@ -97,5 +98,5 @@ private fun intentCall(i: String, context: Context) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    FilteredAppList(mutableListOf("fsdff", "ffdfsdf", "fdsfs", "fdfsff"))
+    //FilteredAppList(mutableListOf("fsdff", "ffdfsdf", "fdsfs", "fdfsff"))
 }

@@ -17,7 +17,7 @@ class MainViewModel @Inject constructor(
 ): ViewModel(){
 
     val uiState = mutableStateOf<MainUiState>(MainUiState.NotLoggedIn)
-    private var filteredAppList: MutableList<String> = mutableListOf()
+    private var filteredAppList: MutableList<BannedApp> = mutableListOf()
     private var listOfBannedApps: BannedApps = BannedApps(emptyList())
     init {
         /*if(uiState.value is MainUiState.LoggedIn)
@@ -69,7 +69,7 @@ class MainViewModel @Inject constructor(
         for (localApp in localAppList){
             for (bannedApp in listOfBannedApps.apps){
                 if (localApp.equals (bannedApp.packageName)){
-                    filteredAppList.add(localApp)
+                    filteredAppList.add(bannedApp)
                 } else -1
             }
         }
