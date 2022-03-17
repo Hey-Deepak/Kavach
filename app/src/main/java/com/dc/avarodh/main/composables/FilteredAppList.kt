@@ -33,7 +33,6 @@ import com.dc.avarodh.main.MainViewModel
 
 @Composable
 fun FilteredAppList(filteredAppList: MutableList<String>) {
-    Log.d("TAG6", "FilteredList" + filteredAppList.toString())
     Card(filteredAppList)
 }
 
