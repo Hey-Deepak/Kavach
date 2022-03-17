@@ -47,7 +47,7 @@ class MainActivity : ComponentActivity() {
                // viewmodel = viewModel()
                 Scaffold(
                     topBar = {
-                        TopAppBar { Text(text = "Kavach") }
+                        TopAppBar (title = {Text(text = "Kavach")} )
                     }
                 ) {
                     MainScreen(

@@ -39,8 +39,6 @@ private fun Card(filteredAppList: MutableList<BannedApp>) {
     ) {
         for (app in filteredAppList) {
 
-            //Log.d("TAG33", (context.packageManager.getApplicationInfo("$index", index.toInt())).toString())
-
             androidx.compose.material.Card(
                 modifier = Modifier
                     .padding(16.dp)
@@ -59,7 +57,7 @@ private fun Card(filteredAppList: MutableList<BannedApp>) {
                         Text(
                             text = app.name,
                             modifier = Modifier
-                                .padding(8.dp),
+                                .padding(16.dp, 8.dp, 16.dp, 8.dp),
                             fontSize = 24.sp,
                             fontWeight = FontWeight.Bold
 
@@ -67,7 +65,7 @@ private fun Card(filteredAppList: MutableList<BannedApp>) {
                         Text(
                             text = app.packageName,
                             modifier = Modifier
-                                .padding(8.dp),
+                                .padding(16.dp, 0.dp, 16.dp, 8.dp),
                             fontSize = TextUnit.Unspecified,
                             fontWeight = FontWeight.Light
                         )
