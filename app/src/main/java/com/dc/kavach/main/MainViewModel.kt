@@ -19,25 +19,9 @@ class MainViewModel @Inject constructor(
     val uiState = mutableStateOf<MainUiState>(MainUiState.NotLoggedIn)
     private var filteredAppList: MutableList<BannedApp> = mutableListOf()
     private var listOfBannedApps: BannedApps = BannedApps(emptyList())
-    init {
-        /*if(uiState.value is MainUiState.LoggedIn)
-            fetchList()*/
-    }
 
-    fun pushList() {
-        val db = FirebaseFirestore.getInstance()
-        db.collection("data").document("BannedAppList")
-            .set(
-                BannedApps(
-                listOf(
-                    BannedApp("us.zoom.videomeetings", "zoom")
-                )
-            )
-            )
-    }
 
     fun fetchList() {
-
         uiState.value = MainUiState.Loading
 
         val db = FirebaseFirestore.getInstance()
@@ -51,7 +35,6 @@ class MainViewModel @Inject constructor(
                         listOfBannedApps = list
                         filterList(localAppList)
 
-                        
                     } ?: kotlin.run {
                         uiState.value = MainUiState.Error("Unable to deserialize data!")
                     }
@@ -77,7 +60,6 @@ class MainViewModel @Inject constructor(
         uiState.value = MainUiState.FilteredAppList(filteredAppList)
 
         updateCountOnServer()
-
     }
 
     private fun updateCountOnServer() {
@@ -100,5 +82,16 @@ class MainViewModel @Inject constructor(
         pm.forEach { localAppList.add(it.packageName) }
         return localAppList
     }
-
 }
+
+/*fun pushList() {
+        val db = FirebaseFirestore.getInstance()
+        db.collection("data").document("BannedAppList")
+            .set(
+                BannedApps(
+                listOf(
+                    BannedApp("us.zoom.videomeetings", "zoom")
+                )
+            )
+            )
+    }*/
