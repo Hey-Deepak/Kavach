@@ -118,7 +118,6 @@ class MainActivity : ComponentActivity() {
     override fun onResume() {
         super.onResume()
         if (viewmodel.uiState.value is MainUiState.FilteredAppList) {
-            Log.d("TAG11", "Hi")
             val localAppList = viewmodel.getLocalappList()
             viewmodel.filterList(localAppList)
         }

@@ -7,6 +7,8 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
@@ -74,15 +76,15 @@ fun EmptyListUI() {
 @Composable
 private fun Card(filteredAppList: MutableList<BannedApp>) {
     val context = LocalContext.current
-
+    val scrollState = rememberScrollState()
     Surface(
         modifier = Modifier.fillMaxSize(1f),
         color = Color.LightGray
     ) {
         Column(
-            Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.fillMaxSize().verticalScroll(state = scrollState)
         ) {
             Text(
                 text = "Banned Apps",
@@ -105,9 +107,11 @@ private fun Card(filteredAppList: MutableList<BannedApp>) {
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
+
                         Column(
                             verticalArrangement = Arrangement.Top,
-                            horizontalAlignment = Alignment.Start
+                            horizontalAlignment = Alignment.Start,
+
                         ) {
                             Text(
                                 text = app.name,
