@@ -92,7 +92,6 @@ private fun Card(filteredAppList: MutableList<BannedApp>) {
                 fontSize = 32.sp
             )
             for (app in filteredAppList) {
-
                 androidx.compose.material.Card(
                     modifier = Modifier
                         .padding(16.dp, 16.dp, 16.dp, 0.dp)

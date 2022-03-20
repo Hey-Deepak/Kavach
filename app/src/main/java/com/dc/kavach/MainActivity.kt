@@ -67,7 +67,7 @@ class MainActivity : ComponentActivity() {
                             TopAppBar(title = { Text(text = "Kavach") })
                         }
                     ) {
-                        //Navigation()
+
                         MainScreen(loginLauncher, viewmodel)
                     }
                 }
@@ -122,63 +122,6 @@ class MainActivity : ComponentActivity() {
             val localAppList = viewmodel.getLocalappList()
             viewmodel.filterList(localAppList)
         }
-    }
-}
-
-
-@Composable
-fun Navigation() {
-    val navController = rememberNavController()
-    NavHost(
-        navController = navController,
-        startDestination = "splash_screen"
-    ) {
-        composable("splash_screen") {
-            SplashScreen(navController = navController)
-        }
-
-        // Main Screen
-        composable("main_screen") {
-            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text(text = "Main Screen", color = Color.Black, fontSize = 24.sp)
-            }
-        }
-    }
-}
-
-@Composable
-fun SplashScreen(navController: NavController) {
-    val scale = remember {
-        androidx.compose.animation.core.Animatable(0f)
-    }
-
-    // Animation
-    LaunchedEffect(key1 = true) {
-        scale.animateTo(
-            targetValue = 0.7f,
-            // tween Animation
-            animationSpec = tween(
-                durationMillis = 800,
-                easing = {
-                    OvershootInterpolator(4f).getInterpolation(it)
-                })
-        )
-        // Customize the delay time
-        delay(3000L)
-        navController.navigate("main_screen")
-    }
-
-    // Image
-    Box(
-        contentAlignment = Alignment.Center,
-        modifier = Modifier.fillMaxSize()
-    ) {
-        // Change the logo
-        Image(
-            painter = painterResource(id = R.drawable.ic_tank_app_icon),
-            contentDescription = "Logo",
-            modifier = Modifier.scale(scale.value)
-        )
     }
 }
 
