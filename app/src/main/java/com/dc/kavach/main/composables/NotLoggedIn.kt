@@ -28,7 +28,7 @@ fun NotLoggedIn(loginLauncher: ActivityResultLauncher<Intent>) {
         Image(painter = painterResource(id = R.drawable.ic_tank_app_icon), contentDescription = "",
         modifier = Modifier.fillMaxSize(0.6f))
 
-        Text(text = "Welcome to Kavach",
+        Text(text = "Welcome to 77_Kavach",
         modifier = Modifier.padding(16.dp),
         fontSize = 32.sp,
         fontWeight = FontWeight.SemiBold
