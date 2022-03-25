@@ -1,7 +1,6 @@
-package com.dc.kavach.main
+package com.dc.kavach.ui.main
 
-import com.dc.kavach.model.BannedApp
-import com.dc.kavach.model.BannedApps
+import com.dc.kavach.domain.models.BannedApp
 
 sealed class MainUiState {
     object NotLoggedIn: MainUiState()
@@ -9,5 +8,5 @@ sealed class MainUiState {
     data class Error(val msg: String): MainUiState()
     data class LoggedIn(val emailId: String): MainUiState()
     //data class Main(val bannedApps: BannedApps): MainUiState()
-    data class FilteredAppList(val filteredAppList: MutableList<BannedApp>): MainUiState()
+    data class FilteredAppList(val filteredAppList: List<BannedApp>): MainUiState()
 }

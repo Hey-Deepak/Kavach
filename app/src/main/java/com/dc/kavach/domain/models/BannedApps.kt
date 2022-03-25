@@ -1,4 +1,4 @@
-package com.dc.kavach.model
+package com.dc.kavach.domain.models
 
 data class BannedApps(
     val apps: List<BannedApp>

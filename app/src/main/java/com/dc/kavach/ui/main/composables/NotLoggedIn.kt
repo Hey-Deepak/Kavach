@@ -1,4 +1,4 @@
-package com.dc.kavach.main.composables
+package com.dc.kavach.ui.main.composables
 
 import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
@@ -11,11 +11,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dc.kavach.R
-import com.dc.kavach.main.MainUiState
 import com.firebase.ui.auth.AuthUI
 
 @Composable

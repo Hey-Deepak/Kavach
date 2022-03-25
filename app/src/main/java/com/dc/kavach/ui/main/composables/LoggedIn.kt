@@ -1,4 +1,4 @@
-package com.dc.kavach.main.composables
+package com.dc.kavach.ui.main.composables
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

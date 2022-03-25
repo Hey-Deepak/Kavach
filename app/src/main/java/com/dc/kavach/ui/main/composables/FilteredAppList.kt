@@ -1,4 +1,4 @@
-package com.dc.kavach.main.composables
+package com.dc.kavach.ui.main.composables
 
 import android.content.Context
 import android.content.Intent
@@ -6,7 +6,6 @@ import android.net.Uri
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
@@ -26,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat.startActivity
 import com.dc.kavach.R
-import com.dc.kavach.model.BannedApp
+import com.dc.kavach.domain.models.BannedApp
 
 @Composable
 fun FilteredAppList(filteredAppList: MutableList<BannedApp>) {

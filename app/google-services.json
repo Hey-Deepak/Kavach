@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "579085498361-jhm3b4q7798i7kjqtufshav6nt5jiaaq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dc.kavach",
+            "certificate_hash": "51cf91fda89e83c38d8f2572c4ba2ab7817b62d7"
+          }
+        },
+        {
           "client_id": "579085498361-q1bp85crjb9c86sish2dpc3rtn3pnkoe.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

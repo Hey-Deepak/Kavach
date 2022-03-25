@@ -1,10 +1,9 @@
-package com.dc.kavach.main
+package com.dc.kavach.ui.main
 
 import android.content.Intent
-import android.util.Log
 import androidx.activity.result.ActivityResultLauncher
 import androidx.compose.runtime.Composable
-import com.dc.kavach.main.composables.*
+import com.dc.kavach.ui.main.composables.*
 
 @Composable
 fun MainScreen(
