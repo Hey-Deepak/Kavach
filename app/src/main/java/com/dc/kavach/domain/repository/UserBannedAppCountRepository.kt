@@ -4,6 +4,6 @@ import com.dc.kavach.other.ResultOf
 
 interface UserBannedAppCountRepository {
 
-    suspend fun updateCountOnServer(count: Int): ResultOf<Unit>
+    suspend fun updateCountOnServer( count: Int): ResultOf<Unit>
 
 }

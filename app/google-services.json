@@ -1,49 +1,41 @@
 {
   "project_info": {
-    "project_number": "579085498361",
-    "project_id": "avarodh-83757",
-    "storage_bucket": "avarodh-83757.appspot.com"
+    "project_number": "639315980849",
+    "project_id": "kavach2-bfad7",
+    "storage_bucket": "kavach2-bfad7.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:579085498361:android:3c47286cc3bb69ad646f28",
+        "mobilesdk_app_id": "1:639315980849:android:082bfc9db0964ee6f11b10",
         "android_client_info": {
           "package_name": "com.dc.kavach"
         }
       },
       "oauth_client": [
         {
-          "client_id": "579085498361-jhm3b4q7798i7kjqtufshav6nt5jiaaq.apps.googleusercontent.com",
+          "client_id": "639315980849-2qbf8knn6u4jgk2vh8lm52qmmi9o39bu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.dc.kavach",
-            "certificate_hash": "51cf91fda89e83c38d8f2572c4ba2ab7817b62d7"
+            "certificate_hash": "95677b980c9e54028f33068cfee2eb255c169e11"
           }
         },
         {
-          "client_id": "579085498361-q1bp85crjb9c86sish2dpc3rtn3pnkoe.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.dc.kavach",
-            "certificate_hash": "a0ba5e05b9716d36ca776fdb782c89fb6e4dd911"
-          }
-        },
-        {
-          "client_id": "579085498361-pf6u0n19r4qrklnmr4qe2uaqk249np7o.apps.googleusercontent.com",
+          "client_id": "639315980849-t6n9a0ubgkcrdskuggv6f3gsuk5os70e.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAWUVnz-WJtvnsCMUULuojmD51NFw6tYuU"
+          "current_key": "AIzaSyDofyUBCB4kBgqFOAm66Hlo2VlsY-NEbmw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "579085498361-pf6u0n19r4qrklnmr4qe2uaqk249np7o.apps.googleusercontent.com",
+              "client_id": "639315980849-t6n9a0ubgkcrdskuggv6f3gsuk5os70e.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kavach">
         <activity
-            android:name="com.dc.kavach.MainActivity"
+            android:name="com.dc.kavach.ui.main.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Kavach.NoActionBar">

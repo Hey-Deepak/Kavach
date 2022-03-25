@@ -28,9 +28,6 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    @Inject
-    lateinit var string: String
-
     private lateinit var loginLauncher: ActivityResultLauncher<Intent>
     private val viewmodel: MainViewModel by viewModels()
 

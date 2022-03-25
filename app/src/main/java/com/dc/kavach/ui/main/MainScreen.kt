@@ -25,13 +25,7 @@ fun MainScreen(
         is MainUiState.LoggedIn -> {
             val email = (viewModel.uiState.value as MainUiState.LoggedIn).emailId
             LoggedIn(email)
-
         }
-//        is MainUiState.Main -> {
-//            val data = (viewModel.uiState.value as MainUiState.Main).bannedApps
-//            Main(data)
-//        }
-
         is MainUiState.FilteredAppList -> {
             val mainList = (viewModel.uiState.value as MainUiState.FilteredAppList).filteredAppList
             FilteredAppList(filteredAppList = mainList)

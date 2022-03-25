@@ -59,12 +59,8 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideUserBannedAppCountRepository(
-        userRepository: UserRepository
-    ): UserBannedAppCountRepository {
-        return UserBannedAppCountRepositoryImpl(
-            userRepository.getLoggedInEmailFromPrefs()
-        )
+    fun provideUserBannedAppCountRepository(): UserBannedAppCountRepository {
+        return UserBannedAppCountRepositoryImpl()
     }
 
     @Singleton

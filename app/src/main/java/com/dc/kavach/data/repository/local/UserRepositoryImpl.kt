@@ -1,17 +1,18 @@
 package com.dc.kavach.data.repository.local
 
 import android.content.SharedPreferences
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dc.kavach.domain.repository.UserRepository
 
 class UserRepositoryImpl(
-    prefs: SharedPreferences
+    val prefs: SharedPreferences
 ) : UserRepository {
 
-    override fun getLoggedInEmailFromPrefs(): String {
-        TODO("Not yet implemented")
+    override fun getLoggedInEmailFromPrefs(): String?{
+        return prefs.getString("emailId", null)
     }
 
     override fun saveEmailToPrefs(email: String) {
-        TODO("Not yet implemented")
+        prefs.edit().putString("emailId", email).apply()
     }
 }

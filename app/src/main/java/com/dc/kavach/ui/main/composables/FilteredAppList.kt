@@ -28,7 +28,7 @@ import com.dc.kavach.R
 import com.dc.kavach.domain.models.BannedApp
 
 @Composable
-fun FilteredAppList(filteredAppList: MutableList<BannedApp>) {
+fun FilteredAppList(filteredAppList: List<BannedApp>) {
     if (filteredAppList.isNotEmpty()) {
         Card(filteredAppList)
     } else EmptyListUI()
@@ -73,7 +73,7 @@ fun EmptyListUI() {
 }
 
 @Composable
-private fun Card(filteredAppList: MutableList<BannedApp>) {
+private fun Card(filteredAppList: List<BannedApp>) {
     val context = LocalContext.current
     val scrollState = rememberScrollState()
     Surface(
