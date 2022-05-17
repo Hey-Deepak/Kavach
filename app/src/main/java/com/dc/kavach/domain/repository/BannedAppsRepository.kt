@@ -7,4 +7,6 @@ interface BannedAppsRepository {
 
     suspend fun fetchBannedApps(): ResultOf<BannedApps>
 
+    suspend fun setLastAppOpenTime(emailId: String)
+
 }

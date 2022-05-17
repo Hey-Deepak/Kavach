@@ -3,6 +3,7 @@ package com.dc.kavach.ui.main
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -41,27 +42,30 @@ class MainActivity : ComponentActivity() {
                             TopAppBar(title = { Text(text = "77_Kavach") })
                         }
                     ) {
+                        Log.d("TAG ", "0")
                         //Navigation()
                         MainScreen(loginLauncher, viewmodel)
                     }
                 }
             }
         }
-
+        Log.d("TAG ", "0.1")
         setupLoginLauncher()
     }
 
     private fun setupLoginLauncher() {
         loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult())
         { result: ActivityResult ->
+            Log.d("TAG ", "3 $result")
             if (result.resultCode == Activity.RESULT_OK) {
                 val user = FirebaseAuth.getInstance().currentUser
                 user?.let {
                     val email = it.email!!
-
+                    Log.d("TAG ", "4 $user")
                     viewmodel.uiState.value = MainUiState.LoggedIn(email)
                     viewmodel.userRepository.saveEmailToPrefs(email)
                     viewmodel.fetchList()
+                    //viewmodel.refreshTimestamp()
 
                     Toast.makeText(
                         this,
@@ -70,6 +74,7 @@ class MainActivity : ComponentActivity() {
                     ).show()
                 }
             }
+            Log.d("TAG ", "5")
         }
     }
 
@@ -78,6 +83,7 @@ class MainActivity : ComponentActivity() {
         super.onResume()
         if (viewmodel.uiState.value is MainUiState.FilteredAppList) {
             viewmodel.refreshList()
+            viewmodel.refreshTimestamp()
         }
     }
 }

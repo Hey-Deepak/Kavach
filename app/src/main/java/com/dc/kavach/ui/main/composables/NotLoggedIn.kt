@@ -1,6 +1,7 @@
 package com.dc.kavach.ui.main.composables
 
 import android.content.Intent
+import android.util.Log
 import androidx.activity.result.ActivityResultLauncher
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -41,6 +42,7 @@ fun NotLoggedIn(loginLauncher: ActivityResultLauncher<Intent>) {
 }
 
 fun fireLoginIntent(loginLauncher: ActivityResultLauncher<Intent>) {
+    Log.d("TAG ", "6")
     val intent = AuthUI.getInstance()
         .createSignInIntentBuilder()
         .setAvailableProviders(listOf(

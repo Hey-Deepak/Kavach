@@ -67,10 +67,11 @@ object AppModule {
     @Provides
     fun provideBannedAppsUsecase(
         bannedAppsRepository: BannedAppsRepository,
-        localAppRepository: LocalAppRepository
+        localAppRepository: LocalAppRepository,
+        userRepository: UserRepository
     ): BannedAppsUsecase {
         return BannedAppsUsecase(
-            bannedAppsRepository, localAppRepository
+            bannedAppsRepository, localAppRepository, userRepository
         )
     }
 

@@ -3,6 +3,7 @@ package com.dc.kavach.ui.main
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dc.kavach.domain.repository.UserRepository
 import com.dc.kavach.domain.usecase.BannedAppsUsecase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -44,6 +45,12 @@ class MainViewModel @Inject constructor(
     fun refreshList() {
         viewModelScope.launch {
             bannedAppsUsecase.refreshList()
+        }
+    }
+
+    fun refreshTimestamp(){
+        viewModelScope.launch {
+            bannedAppsUsecase.refreshTimestamp()
         }
     }
 

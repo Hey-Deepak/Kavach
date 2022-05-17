@@ -4,12 +4,14 @@ import com.dc.kavach.domain.repository.BannedAppsRepository
 import com.dc.kavach.domain.repository.LocalAppRepository
 import com.dc.kavach.domain.models.BannedApp
 import com.dc.kavach.domain.models.BannedApps
+import com.dc.kavach.domain.repository.UserRepository
 import com.dc.kavach.other.ResultOf
 import java.lang.Exception
 
 class BannedAppsUsecase(
     val appRepository: BannedAppsRepository,
-    val localAppRepository: LocalAppRepository
+    val localAppRepository: LocalAppRepository,
+    val userRepository: UserRepository
 ) {
     val filteredAppList = mutableListOf<BannedApp>()
 
@@ -54,6 +56,10 @@ class BannedAppsUsecase(
     suspend fun refreshList(): List<BannedApp> {
         val localAppList = localAppRepository.getLocalAppsList()
         return filterList(filteredAppList, localAppList)
+    }
+
+    suspend fun refreshTimestamp(){
+        appRepository.setLastAppOpenTime(userRepository.getLoggedInEmailFromPrefs()!!)
     }
 
 }

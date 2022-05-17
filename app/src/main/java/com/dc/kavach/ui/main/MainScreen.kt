@@ -1,6 +1,7 @@
 package com.dc.kavach.ui.main
 
 import android.content.Intent
+import android.util.Log
 import androidx.activity.result.ActivityResultLauncher
 import androidx.compose.runtime.Composable
 import com.dc.kavach.ui.main.composables.*
@@ -13,6 +14,7 @@ fun MainScreen(
 
     when(viewModel.uiState.value) {
         MainUiState.NotLoggedIn -> {
+            Log.d("TAG ", "1")
             NotLoggedIn(loginLauncher)
         }
         is MainUiState.Error -> {
@@ -23,6 +25,7 @@ fun MainScreen(
             Loading()
         }
         is MainUiState.LoggedIn -> {
+            Log.d("TAG ", "2")
             val email = (viewModel.uiState.value as MainUiState.LoggedIn).emailId
             LoggedIn(email)
         }

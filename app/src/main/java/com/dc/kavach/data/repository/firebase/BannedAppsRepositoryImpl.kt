@@ -3,6 +3,7 @@ package com.dc.kavach.data.repository.firebase
 import com.dc.kavach.domain.repository.BannedAppsRepository
 import com.dc.kavach.domain.models.BannedApps
 import com.dc.kavach.other.ResultOf
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
 import kotlin.coroutines.resume
@@ -38,6 +39,12 @@ class BannedAppsRepositoryImpl : BannedAppsRepository {
                     )
                 }
         }
+    }
+
+
+
+    override suspend fun setLastAppOpenTime(emailId: String) {
+        db.collection("Users").document(emailId).update("timestamp", Timestamp.now())
     }
 
     // Another way to call Firebase functions in a cleaner way using await()
