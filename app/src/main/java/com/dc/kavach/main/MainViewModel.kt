@@ -83,15 +83,3 @@ class MainViewModel @Inject constructor(
         return localAppList
     }
 }
-
-/*fun pushList() {
-        val db = FirebaseFirestore.getInstance()
-        db.collection("data").document("BannedAppList")
-            .set(
-                BannedApps(
-                listOf(
-                    BannedApp("us.zoom.videomeetings", "zoom")
-                )
-            )
-            )
-    }*/
