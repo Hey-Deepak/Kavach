@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.dc.kavach.model.BannedApp
 import com.dc.kavach.model.BannedApps
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -71,7 +72,8 @@ class MainViewModel @Inject constructor(
         db.collection("Users").document(mailId).set(
             mapOf(
                 "count" to filteredAppList.size,
-                "userName" to userName
+                "userName" to userName,
+                "timestamp" to Timestamp.now()
             )
         )
     }
